@@ -6,7 +6,7 @@
 package udb
 
 import (
-	"github.com/decred/dcrd/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
 )
 
 type graphNode struct {

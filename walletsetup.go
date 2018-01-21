@@ -14,15 +14,15 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/hdkeychain"
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrwallet/internal/prompt"
-	"github.com/decred/dcrwallet/loader"
-	"github.com/decred/dcrwallet/wallet"
-	"github.com/decred/dcrwallet/walletdb"
-	_ "github.com/decred/dcrwallet/walletdb/bdb"
-	"github.com/decred/dcrwallet/walletseed"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/hdkeychain"
+	"github.com/jamiekeefer/thesauro/wire"
+	"github.com/jamiekeefer/tsrowallet/internal/prompt"
+	"github.com/jamiekeefer/tsrowallet/loader"
+	"github.com/jamiekeefer/tsrowallet/wallet"
+	"github.com/jamiekeefer/tsrowallet/walletdb"
+	_ "github.com/jamiekeefer/tsrowallet/walletdb/bdb"
+	"github.com/jamiekeefer/tsrowallet/walletseed"
 )
 
 // networkDir returns the directory name of a network directory to hold wallet

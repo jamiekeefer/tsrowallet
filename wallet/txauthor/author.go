@@ -9,15 +9,15 @@ package txauthor
 import (
 	"errors"
 
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/chaincfg/chainec"
-	"github.com/decred/dcrd/dcrutil"
-	"github.com/decred/dcrd/txscript"
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrwallet/wallet/txrules"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainec"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	"github.com/jamiekeefer/thesauro/txscript"
+	"github.com/jamiekeefer/thesauro/wire"
+	"github.com/jamiekeefer/tsrowallet/wallet/txrules"
 
-	h "github.com/decred/dcrwallet/internal/helpers"
-	"github.com/decred/dcrwallet/wallet/internal/txsizes"
+	h "github.com/jamiekeefer/tsrowallet/internal/helpers"
+	"github.com/jamiekeefer/tsrowallet/wallet/internal/txsizes"
 )
 
 const (

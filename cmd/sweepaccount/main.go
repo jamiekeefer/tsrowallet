@@ -11,22 +11,22 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrjson"
-	"github.com/decred/dcrd/dcrutil"
-	dcrrpcclient "github.com/decred/dcrd/rpcclient"
-	"github.com/decred/dcrd/txscript"
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrwallet/internal/cfgutil"
-	"github.com/decred/dcrwallet/netparams"
-	"github.com/decred/dcrwallet/wallet/txauthor"
-	"github.com/decred/dcrwallet/wallet/txrules"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/dcrjson"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	dcrrpcclient "github.com/jamiekeefer/thesauro/rpcclient"
+	"github.com/jamiekeefer/thesauro/txscript"
+	"github.com/jamiekeefer/thesauro/wire"
+	"github.com/jamiekeefer/tsrowallet/internal/cfgutil"
+	"github.com/jamiekeefer/tsrowallet/netparams"
+	"github.com/jamiekeefer/tsrowallet/wallet/txauthor"
+	"github.com/jamiekeefer/tsrowallet/wallet/txrules"
 	"github.com/jessevdk/go-flags"
 	"golang.org/x/crypto/ssh/terminal"
 )
 
 var (
-	walletDataDirectory = dcrutil.AppDataDir("dcrwallet", false)
+	walletDataDirectory = dcrutil.AppDataDir("tsrowallet", false)
 	newlineBytes        = []byte{'\n'}
 )
 

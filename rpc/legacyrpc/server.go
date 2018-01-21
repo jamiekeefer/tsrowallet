@@ -21,11 +21,11 @@ import (
 	"time"
 
 	"github.com/btcsuite/websocket"
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/dcrjson"
-	dcrrpcclient "github.com/decred/dcrd/rpcclient"
-	"github.com/decred/dcrwallet/chain"
-	"github.com/decred/dcrwallet/loader"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/dcrjson"
+	dcrrpcclient "github.com/jamiekeefer/thesauro/rpcclient"
+	"github.com/jamiekeefer/tsrowallet/chain"
+	"github.com/jamiekeefer/tsrowallet/loader"
 )
 
 type websocketClient struct {
@@ -239,8 +239,8 @@ func (s *Server) SetChainServer(chainClient *chain.RPCClient) {
 }
 
 // handlerClosure creates a closure function for handling requests of the given
-// method.  This may be a request that is handled directly by dcrwallet, or
-// a chain server request that is handled by passing the request down to dcrd.
+// method.  This may be a request that is handled directly by tsrowallet, or
+// a chain server request that is handled by passing the request down to thesauro.
 //
 // NOTE: These handlers do not handle special cases, such as the authenticate
 // method.  Each of these must be checked beforehand (the method is already
@@ -255,7 +255,7 @@ func (s *Server) handlerClosure(ctx context.Context, request *dcrjson.Request) l
 
 	var rpcClient *dcrrpcclient.Client
 	if chainClient != nil {
-		// The "help" RPC must use an HTTP POST client when calling down to dcrd
+		// The "help" RPC must use an HTTP POST client when calling down to thesauro
 		// for additional help methods.  This is required to avoid including
 		// websocket-only requests in the help, which are not callable by wallet
 		// JSON-RPC clients.  Any errors creating the POST client may be ignored
@@ -441,7 +441,7 @@ out:
 				log.Infof("RPC method stop invoked by client %s",
 					remoteAddr(ctx))
 				resp := makeResponse(req.ID,
-					"dcrwallet stopping.", nil)
+					"tsrowallet stopping.", nil)
 				mresp, err := json.Marshal(resp)
 				// Expected to never fail.
 				if err != nil {
@@ -593,7 +593,7 @@ func (s *Server) postClientRPC(w http.ResponseWriter, r *http.Request) {
 	case "stop":
 		log.Infof("RPC method stop invoked by client %s", r.RemoteAddr)
 		stop = true
-		res = "dcrwallet stopping"
+		res = "tsrowallet stopping"
 	default:
 		res, jsonErr = s.handlerClosure(ctx, &req)()
 	}

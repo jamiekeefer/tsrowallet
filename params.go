@@ -5,6 +5,6 @@
 
 package main
 
-import "github.com/decred/dcrwallet/netparams"
+import "github.com/jamiekeefer/tsrowallet/netparams"
 
 var activeNet = &netparams.MainNetParams

@@ -11,11 +11,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/decred/dcrd/blockchain"
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/dcrutil"
-	dcrrpcclient "github.com/decred/dcrd/rpcclient"
-	"github.com/decred/dcrwallet/wallet"
+	"github.com/jamiekeefer/thesauro/blockchain"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	dcrrpcclient "github.com/jamiekeefer/thesauro/rpcclient"
+	"github.com/jamiekeefer/tsrowallet/wallet"
 )
 
 var (
@@ -85,7 +85,7 @@ type Config struct {
 type TicketPurchaser struct {
 	cfg              *Config
 	activeNet        *chaincfg.Params
-	dcrdChainSvr     *dcrrpcclient.Client
+	thesauroChainSvr     *dcrrpcclient.Client
 	wallet           *wallet.Wallet
 	votingAddress    dcrutil.Address
 	poolAddress      dcrutil.Address
@@ -340,7 +340,7 @@ func (t *TicketPurchaser) SetExpiryDelta(expiryDelta int) {
 
 // NewTicketPurchaser creates a new TicketPurchaser.
 func NewTicketPurchaser(cfg *Config,
-	dcrdChainSvr *dcrrpcclient.Client,
+	thesauroChainSvr *dcrrpcclient.Client,
 	w *wallet.Wallet,
 	activeNet *chaincfg.Params) (*TicketPurchaser, error) {
 	priceMode := avgPriceMode(AvgPriceVWAPMode)
@@ -359,7 +359,7 @@ func NewTicketPurchaser(cfg *Config,
 	return &TicketPurchaser{
 		cfg:           cfg,
 		activeNet:     activeNet,
-		dcrdChainSvr:  dcrdChainSvr,
+		thesauroChainSvr:  thesauroChainSvr,
 		wallet:        w,
 		firstStart:    true,
 		votingAddress: cfg.VotingAddress,
@@ -442,7 +442,7 @@ func (t *TicketPurchaser) Purchase(height int64) (*PurchaseStats, error) {
 		var curStakeInfo *wallet.StakeInfoData
 		var err error
 		for i := 1; i <= stakeInfoReqTries; i++ {
-			curStakeInfo, err = t.wallet.StakeInfo(t.dcrdChainSvr)
+			curStakeInfo, err = t.wallet.StakeInfo(t.thesauroChainSvr)
 			if err != nil {
 				log.Debugf("Waiting for StakeInfo, attempt %v: (%v)", i, err.Error())
 				time.Sleep(stakeInfoReqTryDelay)
@@ -501,7 +501,7 @@ func (t *TicketPurchaser) Purchase(height int64) (*PurchaseStats, error) {
 	t.ticketPrice = nextStakeDiff
 	ps.TicketPrice = nextStakeDiff
 
-	sDiffEsts, err := t.dcrdChainSvr.EstimateStakeDiff(nil)
+	sDiffEsts, err := t.thesauroChainSvr.EstimateStakeDiff(nil)
 	if err == nil {
 		ps.PriceNext, err = dcrutil.NewAmount(sDiffEsts.Expected)
 		if err != nil {
@@ -566,7 +566,7 @@ func (t *TicketPurchaser) Purchase(height int64) (*PurchaseStats, error) {
 
 	// Lookup how many tickets purchase slots were filled in the last block
 	oneBlock := uint32(1)
-	info, err := t.dcrdChainSvr.TicketFeeInfo(&oneBlock, &zeroUint32)
+	info, err := t.thesauroChainSvr.TicketFeeInfo(&oneBlock, &zeroUint32)
 	if err != nil {
 		return ps, err
 	}

@@ -14,9 +14,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrutil"
-	"github.com/decred/dcrd/wire"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	"github.com/jamiekeefer/thesauro/wire"
 )
 
 type queryState struct {

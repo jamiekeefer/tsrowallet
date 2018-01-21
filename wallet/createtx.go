@@ -12,22 +12,22 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/decred/dcrd/blockchain"
-	"github.com/decred/dcrd/blockchain/stake"
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/chaincfg/chainec"
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrjson"
-	"github.com/decred/dcrd/dcrutil"
-	"github.com/decred/dcrd/mempool"
-	"github.com/decred/dcrd/txscript"
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrwallet/apperrors"
-	"github.com/decred/dcrwallet/wallet/internal/txsizes"
-	"github.com/decred/dcrwallet/wallet/txauthor"
-	"github.com/decred/dcrwallet/wallet/txrules"
-	"github.com/decred/dcrwallet/wallet/udb"
-	"github.com/decred/dcrwallet/walletdb"
+	"github.com/jamiekeefer/thesauro/blockchain"
+	"github.com/jamiekeefer/thesauro/blockchain/stake"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainec"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/dcrjson"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	"github.com/jamiekeefer/thesauro/mempool"
+	"github.com/jamiekeefer/thesauro/txscript"
+	"github.com/jamiekeefer/thesauro/wire"
+	"github.com/jamiekeefer/tsrowallet/apperrors"
+	"github.com/jamiekeefer/tsrowallet/wallet/internal/txsizes"
+	"github.com/jamiekeefer/tsrowallet/wallet/txauthor"
+	"github.com/jamiekeefer/tsrowallet/wallet/txrules"
+	"github.com/jamiekeefer/tsrowallet/wallet/udb"
+	"github.com/jamiekeefer/tsrowallet/walletdb"
 )
 
 // --------------------------------------------------------------------------------
@@ -80,7 +80,7 @@ const (
 	// maxStandardTxSize is the maximum size allowed for transactions that
 	// are considered standard and will therefore be relayed and considered
 	// for mining.
-	// TODO: import from dcrd.
+	// TODO: import from thesauro.
 	maxStandardTxSize = 100000
 
 	// sanityVerifyFlags are the flags used to enable and disable features of
@@ -653,7 +653,7 @@ func (w *Wallet) txToMultisigInternal(dbtx walletdb.ReadWriteTx, account uint32,
 		return txToMultisigError(err)
 	}
 
-	// Request updates from dcrd for new transactions sent to this
+	// Request updates from thesauro for new transactions sent to this
 	// script hash address.
 	utilAddrs := make([]dcrutil.Address, 1)
 	utilAddrs[0] = scAddr

@@ -11,12 +11,12 @@ import (
 	"io"
 	"time"
 
-	"github.com/decred/dcrd/blockchain/stake"
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrutil"
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrwallet/apperrors"
-	"github.com/decred/dcrwallet/walletdb"
+	"github.com/jamiekeefer/thesauro/blockchain/stake"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	"github.com/jamiekeefer/thesauro/wire"
+	"github.com/jamiekeefer/tsrowallet/apperrors"
+	"github.com/jamiekeefer/tsrowallet/walletdb"
 )
 
 const (

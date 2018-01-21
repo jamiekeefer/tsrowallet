@@ -17,15 +17,15 @@ import (
 	"runtime/pprof"
 	"time"
 
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrwallet/chain"
-	"github.com/decred/dcrwallet/internal/prompt"
-	"github.com/decred/dcrwallet/internal/zero"
-	ldr "github.com/decred/dcrwallet/loader"
-	"github.com/decred/dcrwallet/rpc/legacyrpc"
-	"github.com/decred/dcrwallet/rpc/rpcserver"
-	"github.com/decred/dcrwallet/version"
-	"github.com/decred/dcrwallet/wallet"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/tsrowallet/chain"
+	"github.com/jamiekeefer/tsrowallet/internal/prompt"
+	"github.com/jamiekeefer/tsrowallet/internal/zero"
+	ldr "github.com/jamiekeefer/tsrowallet/loader"
+	"github.com/jamiekeefer/tsrowallet/rpc/legacyrpc"
+	"github.com/jamiekeefer/tsrowallet/rpc/rpcserver"
+	"github.com/jamiekeefer/tsrowallet/version"
+	"github.com/jamiekeefer/tsrowallet/wallet"
 )
 
 var (
@@ -252,7 +252,7 @@ func run(ctx context.Context) error {
 	defer loader.StopTicketPurchase()
 
 	// When not running with --noinitialload, it is the main package's
-	// responsibility to connect the loaded wallet to the dcrd RPC server for
+	// responsibility to connect the loaded wallet to the thesauro RPC server for
 	// wallet synchronization.  This function blocks until cancelled.
 	if !cfg.NoInitialLoad {
 		if done(ctx) {
