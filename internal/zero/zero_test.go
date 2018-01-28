@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/decred/dcrwallet/internal/zero"
+	. "github.com/jamiekeefer/tsrowallet/internal/zero"
 )
 
 func makeOneBytes(n int) []byte {

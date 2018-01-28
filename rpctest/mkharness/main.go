@@ -10,11 +10,11 @@ import (
 	//"strings"
 	//"time"
 
-	"github.com/decred/dcrd/chaincfg"
-	//dcrrpcclient "github.com/decred/dcrd/rpcclient"
-	//"github.com/decred/dcrd/dcrutil"
-	//"github.com/decred/dcrwallet/rpc/legacyrpc"
-	"github.com/decred/dcrwallet/rpctest"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	//dcrrpcclient "github.com/jamiekeefer/thesauro/rpcclient"
+	//"github.com/jamiekeefer/thesauro/dcrutil"
+	//"github.com/jamiekeefer/tsrowallet/rpc/legacyrpc"
+	"github.com/jamiekeefer/tsrowallet/rpctest"
 )
 
 func main() {
@@ -40,14 +40,14 @@ func main() {
 
 	cn := primaryHarness.RPCConfig()
 	nodeCertFile := primaryHarness.RPCCertFile()
-	fmt.Println("Command for node's dcrctl:")
-	fmt.Printf("\tdcrctl -u %s -P %s -s %s -c %s\n", cn.User, cn.Pass,
+	fmt.Println("Command for node's thesaurotl:")
+	fmt.Printf("\tthesaurotl -u %s -P %s -s %s -c %s\n", cn.User, cn.Pass,
 		cn.Host, nodeCertFile)
 
 	cw := primaryHarness.RPCWalletConfig()
 	walletCertFile := primaryHarness.RPCWalletCertFile()
-	fmt.Println("Command for wallet's dcrctl:")
-	fmt.Printf("\tdcrctl -u %s -P %s -s %s -c %s --wallet\n", cw.User, cw.Pass,
+	fmt.Println("Command for wallet's thesaurotl:")
+	fmt.Printf("\tthesaurotl -u %s -P %s -s %s -c %s --wallet\n", cw.User, cw.Pass,
 		cw.Host, walletCertFile)
 
 	fmt.Print("Press Enter to terminate harness.")

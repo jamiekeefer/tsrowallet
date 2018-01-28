@@ -5,8 +5,8 @@
 package udb
 
 import (
-	"github.com/decred/dcrwallet/apperrors"
-	"github.com/decred/dcrwallet/walletdb"
+	"github.com/jamiekeefer/tsrowallet/apperrors"
+	"github.com/jamiekeefer/tsrowallet/walletdb"
 )
 
 type unifiedDBMetadata struct {

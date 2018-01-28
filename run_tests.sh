@@ -21,7 +21,7 @@ set -ex
 
 #Default GOVERSION
 GOVERSION=${1:-1.9}
-REPO=dcrwallet
+REPO=tsrowallet
 DOCKER_IMAGE_TAG=decred-golang-builder-$GOVERSION
 
 testrepo () {
@@ -78,8 +78,8 @@ fi
 
 docker run --rm -it -v $(pwd):/src decred/$DOCKER_IMAGE_TAG /bin/bash -c "\
   rsync -ra --filter=':- .gitignore'  \
-  /src/ /go/src/github.com/decred/$REPO/ && \
-  cd github.com/decred/$REPO/ && \
+  /src/ /go/src/github.com/jamiekeefer/$REPO/ && \
+  cd github.com/jamiekeefer/$REPO/ && \
   bash run_tests.sh local"
 if [ $? != 0 ]; then
         echo 'docker run failed'

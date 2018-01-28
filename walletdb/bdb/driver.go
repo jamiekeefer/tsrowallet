@@ -8,7 +8,7 @@ package bdb
 import (
 	"fmt"
 
-	"github.com/decred/dcrwallet/walletdb"
+	"github.com/jamiekeefer/tsrowallet/walletdb"
 )
 
 const (

@@ -8,13 +8,13 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/decred/dcrwallet/apperrors"
-	"github.com/decred/dcrwallet/wallet"
+	"github.com/jamiekeefer/tsrowallet/apperrors"
+	"github.com/jamiekeefer/tsrowallet/wallet"
 	"golang.org/x/sync/errgroup"
 )
 
 // RPCSyncer implements wallet synchronization services by processing
-// notifications from a dcrd JSON-RPC server.
+// notifications from a thesauro JSON-RPC server.
 type RPCSyncer struct {
 	wallet    *wallet.Wallet
 	rpcClient *RPCClient
@@ -29,7 +29,7 @@ func NewRPCSyncer(w *wallet.Wallet, rpcClient *RPCClient) *RPCSyncer {
 // Run synchronizes the wallet, returning when synchronization fails or the
 // context is cancelled.  If startupSync is true, all synchronization tasks
 // needed to fully register the wallet for notifications and synchronize it with
-// the dcrd server are performed.  Otherwise, it will listen for notifications
+// the thesauro server are performed.  Otherwise, it will listen for notifications
 // but not register for any updates.
 func (s *RPCSyncer) Run(ctx context.Context, startupSync bool) error {
 	// TODO: handling of voting notifications should be done sequentially with
