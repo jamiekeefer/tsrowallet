@@ -8,15 +8,15 @@ import (
 	"encoding/hex"
 	"time"
 
-	"github.com/decred/dcrd/blockchain/stake"
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrutil"
-	dcrrpcclient "github.com/decred/dcrd/rpcclient"
-	"github.com/decred/dcrd/txscript"
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrwallet/apperrors"
-	"github.com/decred/dcrwallet/wallet/udb"
-	"github.com/decred/dcrwallet/walletdb"
+	"github.com/jamiekeefer/thesauro/blockchain/stake"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	dcrrpcclient "github.com/jamiekeefer/thesauro/rpcclient"
+	"github.com/jamiekeefer/thesauro/txscript"
+	"github.com/jamiekeefer/thesauro/wire"
+	"github.com/jamiekeefer/tsrowallet/apperrors"
+	"github.com/jamiekeefer/tsrowallet/wallet/udb"
+	"github.com/jamiekeefer/tsrowallet/walletdb"
 	"github.com/jrick/bitset"
 	"golang.org/x/sync/errgroup"
 )
@@ -108,9 +108,9 @@ func (w *Wallet) LiveTicketHashes(chainClient *dcrrpcclient.Client, includeImmat
 	}
 
 	// Determine if the extra tickets are immature or possibly live.  Because
-	// these transactions are not part of the wallet's transaction history, dcrd
+	// these transactions are not part of the wallet's transaction history, thesauro
 	// must be queried for their blockchain height.  This functionality requires
-	// the dcrd transaction index to be enabled.
+	// the thesauro transaction index to be enabled.
 	var g errgroup.Group
 	type extraTicketResult struct {
 		valid  bool // unspent with known height

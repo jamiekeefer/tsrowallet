@@ -8,7 +8,7 @@ package legacyrpc
 import (
 	"errors"
 
-	"github.com/decred/dcrd/dcrjson"
+	"github.com/jamiekeefer/thesauro/dcrjson"
 )
 
 // TODO(jrick): There are several error paths which 'replace' various errors

@@ -9,11 +9,11 @@
 // Full documentation of the API implemented by this package is maintained in a
 // language-agnostic document:
 //
-//   https://github.com/decred/dcrwallet/blob/master/rpc/documentation/api.md
+//   https://github.com/jamiekeefer/tsrowallet/blob/master/rpc/documentation/api.md
 //
 // Any API changes must be performed according to the steps listed here:
 //
-//   https://github.com/decred/dcrwallet/blob/master/rpc/documentation/serverchanges.md
+//   https://github.com/jamiekeefer/tsrowallet/blob/master/rpc/documentation/serverchanges.md
 package rpcserver
 
 import (
@@ -30,31 +30,31 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/decred/dcrd/blockchain/stake"
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/chaincfg/chainec"
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrutil"
-	"github.com/decred/dcrd/hdkeychain"
-	dcrrpcclient "github.com/decred/dcrd/rpcclient"
-	"github.com/decred/dcrd/txscript"
-	"github.com/decred/dcrd/wire"
-	"github.com/decred/dcrwallet/apperrors"
-	"github.com/decred/dcrwallet/chain"
-	"github.com/decred/dcrwallet/internal/cfgutil"
-	h "github.com/decred/dcrwallet/internal/helpers"
-	"github.com/decred/dcrwallet/internal/zero"
-	"github.com/decred/dcrwallet/loader"
-	"github.com/decred/dcrwallet/netparams"
-	"github.com/decred/dcrwallet/rpc/legacyrpc"
-	pb "github.com/decred/dcrwallet/rpc/walletrpc"
-	"github.com/decred/dcrwallet/ticketbuyer"
-	"github.com/decred/dcrwallet/wallet"
-	"github.com/decred/dcrwallet/wallet/txauthor"
-	"github.com/decred/dcrwallet/wallet/txrules"
-	"github.com/decred/dcrwallet/wallet/udb"
-	"github.com/decred/dcrwallet/walletdb"
-	"github.com/decred/dcrwallet/walletseed"
+	"github.com/jamiekeefer/thesauro/blockchain/stake"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainec"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	"github.com/jamiekeefer/thesauro/hdkeychain"
+	dcrrpcclient "github.com/jamiekeefer/thesauro/rpcclient"
+	"github.com/jamiekeefer/thesauro/txscript"
+	"github.com/jamiekeefer/thesauro/wire"
+	"github.com/jamiekeefer/tsrowallet/apperrors"
+	"github.com/jamiekeefer/tsrowallet/chain"
+	"github.com/jamiekeefer/tsrowallet/internal/cfgutil"
+	h "github.com/jamiekeefer/tsrowallet/internal/helpers"
+	"github.com/jamiekeefer/tsrowallet/internal/zero"
+	"github.com/jamiekeefer/tsrowallet/loader"
+	"github.com/jamiekeefer/tsrowallet/netparams"
+	"github.com/jamiekeefer/tsrowallet/rpc/legacyrpc"
+	pb "github.com/jamiekeefer/tsrowallet/rpc/walletrpc"
+	"github.com/jamiekeefer/tsrowallet/ticketbuyer"
+	"github.com/jamiekeefer/tsrowallet/wallet"
+	"github.com/jamiekeefer/tsrowallet/wallet/txauthor"
+	"github.com/jamiekeefer/tsrowallet/wallet/txrules"
+	"github.com/jamiekeefer/tsrowallet/wallet/udb"
+	"github.com/jamiekeefer/tsrowallet/walletdb"
+	"github.com/jamiekeefer/tsrowallet/walletseed"
 )
 
 // Public API version constants
@@ -164,7 +164,7 @@ type walletServer struct {
 }
 
 // loaderServer provides RPC clients with the ability to load and close wallets,
-// as well as establishing a RPC connection to a dcrd consensus server.
+// as well as establishing a RPC connection to a thesauro consensus server.
 type loaderServer struct {
 	ready     uint32 // atomic
 	loader    *loader.Loader

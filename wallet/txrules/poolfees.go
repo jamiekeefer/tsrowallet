@@ -10,9 +10,9 @@ import (
 	"math/big"
 	"sync"
 
-	"github.com/decred/dcrd/blockchain"
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/dcrutil"
+	"github.com/jamiekeefer/thesauro/blockchain"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/dcrutil"
 )
 
 // maxPoolFeeRate is the maximum value of the pool fee

@@ -6,9 +6,9 @@
 package txsizes
 
 import (
-	"github.com/decred/dcrd/wire"
+	"github.com/jamiekeefer/thesauro/wire"
 
-	h "github.com/decred/dcrwallet/internal/helpers"
+	h "github.com/jamiekeefer/tsrowallet/internal/helpers"
 )
 
 // Worst case script and input/output size estimates.

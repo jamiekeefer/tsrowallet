@@ -5,7 +5,7 @@
 
 package netparams
 
-import "github.com/decred/dcrd/chaincfg"
+import "github.com/jamiekeefer/thesauro/chaincfg"
 
 // Params is used to group parameters for various networks such as the main
 // network and test networks.
@@ -16,8 +16,8 @@ type Params struct {
 	GRPCServerPort    string
 }
 
-// MainNetParams contains parameters specific running dcrwallet and
-// dcrd on the main network (wire.MainNet).
+// MainNetParams contains parameters specific running tsrowallet and
+// thesauro on the main network (wire.MainNet).
 var MainNetParams = Params{
 	Params:            &chaincfg.MainNetParams,
 	JSONRPCClientPort: "9109",
@@ -25,8 +25,8 @@ var MainNetParams = Params{
 	GRPCServerPort:    "9111",
 }
 
-// TestNet2Params contains parameters specific running dcrwallet and
-// dcrd on the test network (version 2) (wire.TestNet2).
+// TestNet2Params contains parameters specific running tsrowallet and
+// thesauro on the test network (version 2) (wire.TestNet2).
 var TestNet2Params = Params{
 	Params:            &chaincfg.TestNet2Params,
 	JSONRPCClientPort: "19109",

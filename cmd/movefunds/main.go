@@ -26,11 +26,11 @@ import (
 	"os"
 	"sort"
 
-	"github.com/decred/dcrd/chaincfg"
-	"github.com/decred/dcrd/chaincfg/chainhash"
-	"github.com/decred/dcrd/dcrjson"
-	"github.com/decred/dcrd/dcrutil"
-	"github.com/decred/dcrd/wire"
+	"github.com/jamiekeefer/thesauro/chaincfg"
+	"github.com/jamiekeefer/thesauro/chaincfg/chainhash"
+	"github.com/jamiekeefer/thesauro/dcrjson"
+	"github.com/jamiekeefer/thesauro/dcrutil"
+	"github.com/jamiekeefer/thesauro/wire"
 )
 
 // params is the global representing the chain parameters. It is assigned
@@ -42,7 +42,7 @@ type configJSON struct {
 	TxFee         int64  `json:"txfee"`
 	SendToAddress string `json:"sendtoaddress"`
 	Network       string `json:"network"`
-	DcrctlArgs    string `json:"dcrctlargs"`
+	DcrctlArgs    string `json:"thesaurotlargs"`
 }
 
 // extendedOutPoint is a UTXO with an amount.
@@ -185,7 +185,7 @@ func main() {
 
 	// The command to sign the transaction.
 	var buf bytes.Buffer
-	buf.WriteString("dcrctl ")
+	buf.WriteString("thesaurotl ")
 	buf.WriteString(cfg.DcrctlArgs)
 	buf.WriteString(" signrawtransaction ")
 	buf.WriteString(hex.EncodeToString(txB))

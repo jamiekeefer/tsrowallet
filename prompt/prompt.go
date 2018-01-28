@@ -3,8 +3,8 @@ package prompt
 import (
 	"bufio"
 
-	"github.com/decred/dcrwallet/internal/prompt"
-	"github.com/decred/dcrwallet/wallet"
+	"github.com/jamiekeefer/tsrowallet/internal/prompt"
+	"github.com/jamiekeefer/tsrowallet/wallet"
 )
 
 // Setup prompts for, from a buffered reader, the private and/or public
